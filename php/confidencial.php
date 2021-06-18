@@ -18,15 +18,16 @@ require "config.php";
 
 	}
 
-	echo json_encode($retorno);
+	//echo json_encode($retorno);
 
 	if($resultado == false) {
 		die($mysqli -> error);
 	}
 
-		$expirar = 60;
+		$expirar = 1;
 
-	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > ($expirar * 60))) {
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > ($expirar * 1))) {
+		echo "HELLOOOOOOOOOOOOOOOOOOOOOOW";
 
 		session_unset(); 
 		session_destroy();

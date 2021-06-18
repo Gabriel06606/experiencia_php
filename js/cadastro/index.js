@@ -14,9 +14,11 @@ $(document).ready(function(){
 				var sha256_hexa = sjcl.codec.hex.fromBits(sha256);
 		
 				$("#senha_hash").val(sha256_hexa);
-		
+
+				 //fLocalReqChaveSimetrica();
+				// criptografarChaveSimetrica();
 				fLocalComunicaServidor('form-cadastro', 'cadastro');
-		
+				
 				return false;
 			}
 	});
@@ -62,6 +64,39 @@ function verificaSenha() {
 	   alert("Senha muito curta!");
 	   return false;
 	}
+}
+
+function fLocalReqChaveSimetrica(){
+
+	var data = {"usuario": $("#usuario").val(), "senha": CryptoJS.SHA256($("#senha_hash").val()).toString()};
+
+    var data_criptografada = criptografarChaveSimetrica(data);
+
+    $.ajax({
+        url: "../php/descriptografar.php", 
+        type: 'post', 
+        data: {dados: data_criptografada}, 
+        dataType: "json"
+    });
+}
+
+function criptografarChaveSimetrica(data) {
+
+
+	var iv_random = CryptoJS.enc.Hex.stringify(CryptoJS.lib.WordArray.random(16)).toString();
+    var iv = CryptoJS.enc.Utf8.parse(iv_random);
+    var valores = JSON.stringify(data);
+    valores = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(valores)).toString();
+    var chave = CryptoJS.enc.Utf8.parse('1234567887654321'); 
+
+    var criptografado = CryptoJS.AES.encrypt(valores, chave, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.ZeroPadding
+    });
+ 
+    var criptografado_string = criptografado.toString();
+    return iv_random + CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(criptografado_string)).toString();
 }
 
 
