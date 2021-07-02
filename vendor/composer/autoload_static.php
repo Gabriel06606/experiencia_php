@@ -7,17 +7,21 @@ namespace Composer\Autoload;
 class ComposerStaticInit5b1fd8a5dc874364a36b3aec9562671c
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'S' => 
         array (
-            'PHPMailer\\PHPMailer\\' => 20,
+            'Symfony\\Component\\OptionsResolver\\' => 34,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PHPMailer\\PHPMailer\\' => 
+        'Symfony\\Component\\OptionsResolver\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+            0 => __DIR__ . '/..' . '/symfony/options-resolver',
         ),
+    );
+
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/..' . '/kzykhys/steganography/src',
     );
 
     public static $classMap = array (
@@ -29,6 +33,7 @@ class ComposerStaticInit5b1fd8a5dc874364a36b3aec9562671c
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit5b1fd8a5dc874364a36b3aec9562671c::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit5b1fd8a5dc874364a36b3aec9562671c::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit5b1fd8a5dc874364a36b3aec9562671c::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInit5b1fd8a5dc874364a36b3aec9562671c::$classMap;
 
         }, null, ClassLoader::class);

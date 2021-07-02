@@ -66,6 +66,8 @@ function verificaSenha() {
 	}
 }
 
+
+
 function fLocalReqChaveSimetrica(){
 
 	var data = {"usuario": $("#usuario").val(), "senha": CryptoJS.SHA256($("#senha_hash").val()).toString()};

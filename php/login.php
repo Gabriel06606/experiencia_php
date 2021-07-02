@@ -16,20 +16,20 @@
 	$retorno["mensagem"] = "usuario não cadastrado";
 	$retorno["funcao"] = "login";
 	
-	//$count = mysqli_num_rows($resultado);
-
+	//Se tiver registro
 	if(mysqli_num_rows($resultado) > 0) 
 	{
 		$registro = mysqli_fetch_assoc($resultado);
 
 		$_SESSION["usuario"] = $registro["usuario"];
 		$_SESSION["inicio"] = time();
-		$_SESSION["tempolimite"] = 15; // 15 segundos
+
+		//Autenticação por 5 minutos
+		$_SESSION["tempolimite"] = 300; // 5 minutos
 		$_SESSION["id"] = session_id();
 
 		$retorno["status"] = "s";
 		$retorno["mensagem"] = $_POST['usuario'].", confirme o seu código!";
-		//$retorno["unico"] = "ok";
 	}
 	// print_r($_SESSION);
 
@@ -41,13 +41,13 @@
 
 		$expirar = 60;
 
+
+	//Sessão por 1 hora
 	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > ($expirar * 60))) {
 
 		session_unset(); 
 		session_destroy();
 	}
-	//}
-
 
 	//print_r($_SESSION);
 	echo json_encode($retorno);

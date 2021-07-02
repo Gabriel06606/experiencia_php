@@ -23,7 +23,7 @@ session_start();
         $_SESSION['usuario'] = $usuario;
 		echo "Usuário ja existe";
     }else{
-
+		
 		if(is_numeric($cpf)){
 			$resultado = mysqli_query($conexao, "INSERT INTO usuario (usuario, nome, email, cpf, senha, codigo) VALUES ('$usuario', '$nome', '$email','$cpf','$senha', '$geraCodigo')");
 

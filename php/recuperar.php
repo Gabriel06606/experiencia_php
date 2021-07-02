@@ -4,7 +4,6 @@ session_start();
 require "config.php";
 
 $email = $_POST["recuperar"] ?? "";
-//$geraSenha = 
 
 function geraSenha($fim)
 {

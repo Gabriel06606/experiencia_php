@@ -25,9 +25,6 @@ function fLocalComunicaServidor(formulario, arquivo){
 		 	$("#bAcessar").html('Tente novamente');
 	     },
 		success: function(retorno){
-			//if(retorno.unico == "ok"){
-				//window.location.href = "https://gabrielproject/Project/paginas/logado/index.php";
-			//} else {
 				if(retorno.status == "s")
 				{
 					alert(retorno.mensagem);
@@ -35,10 +32,8 @@ function fLocalComunicaServidor(formulario, arquivo){
 	
 				} else {
 					alert("Usuario ou Senha incorretos");
-				//}
 			}
 
-			
 		},
 		error: function(){
 			alert("Ocorreu um erro");

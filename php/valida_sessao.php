@@ -13,15 +13,9 @@
 		$retorno["status"] = "n";
 		$retorno["funcao"] = "valida-sessao";
 		$retorno["mensagem"] = "não existe sessao";
-
-		//echo "não existe id<br>";
-		//print_r($_SESSION);
 	}
 	else
 	{
-		//echo "existe id<br>";
-		//print_r($_SESSION);
-
 		$segundos = time() - $_SESSION["inicio"];
 
 		if($segundos > $_SESSION["tempolimite"])
@@ -32,16 +26,11 @@
 			unset($_SESSION["id"]);
 			session_destroy();
 
-			//echo "acabou o tempo<br>";
-			//print_r($_SESSION);
-
 			$retorno["status"] = "n";
 			$retorno["mensagem"] = "acabou o tempo";
 		}
 		else
 		{
-			//echo "sessao renovada<br>";
-			//print_r($_SESSION);
 
 			$_SESSION["inicio"] = time();
 			$retorno["status"] = "s";
@@ -52,6 +41,7 @@
 		}
 	}
 
+	echo "Voce entrou";
 	echo json_encode($retorno);
 
 ?>

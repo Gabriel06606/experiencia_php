@@ -27,33 +27,43 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '8e248e1c31f0656d725609ae5c5e14248384b5a1',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '8e248e1c31f0656d725609ae5c5e14248384b5a1',
     ),
-    'phpmailer/phpmailer' => 
+    'kzykhys/steganography' => 
     array (
-      'pretty_version' => 'v6.4.1',
-      'version' => '6.4.1.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+        0 => '9999999-dev',
+      ),
+      'reference' => 'd60fdf365679a1ed5dcca6e3a4741df245c16bd6',
+    ),
+    'symfony/options-resolver' => 
+    array (
+      'pretty_version' => 'v2.8.52',
+      'version' => '2.8.52.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9256f12d8fb0cd0500f93b19e18c356906cbed3d',
+      'reference' => '7aaab725bb58f0e18aa12c61bdadd4793ab4c32b',
     ),
   ),
 );

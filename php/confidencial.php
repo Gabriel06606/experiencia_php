@@ -14,24 +14,10 @@ require "config.php";
 
 	if($_SESSION["codigo"] = $registro["codigo"]){
 		$retorno["status"] = "1";
-		
-
+	} else {
+		echo "Ocorreu um erro";
 	}
 
-	//echo json_encode($retorno);
-
-	if($resultado == false) {
-		die($mysqli -> error);
-	}
-
-		$expirar = 1;
-
-	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > ($expirar * 1))) {
-		echo "HELLOOOOOOOOOOOOOOOOOOOOOOW";
-
-		session_unset(); 
-		session_destroy();
-	}
-
+	echo json_encode($retorno);
 
 ?>

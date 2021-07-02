@@ -16,7 +16,7 @@ function fLocalComunicaServidor(arquivo){
 		dataType: "json",
 		url: "/Project/php/"+arquivo+".php",
 		data: dados,
-		error: function(){
+		success: function(){
 
 			window.location.href = "https://gabrielproject/Project/php/recupera-email.php";
 		}
